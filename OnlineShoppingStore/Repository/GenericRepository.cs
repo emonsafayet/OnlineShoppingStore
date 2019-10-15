@@ -13,11 +13,11 @@ namespace OnlineShoppingStore.Repository
 
         DbSet<Tbl_Entity> _dbSet;
 
-        private dbMyOnlineShoppingEntities _DBEntity;
+        private dbMyOnlineShoppingEntities _DBEntity; 
 
         public GenericRepository(dbMyOnlineShoppingEntities DBEntity)
         {
-            _DBEntity = _DBEntity;
+            _DBEntity = DBEntity;
             _dbSet = _DBEntity.Set<Tbl_Entity>();
         }
 
