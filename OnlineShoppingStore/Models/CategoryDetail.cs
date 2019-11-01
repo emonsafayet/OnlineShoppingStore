@@ -35,7 +35,7 @@ namespace OnlineShoppingStore.Models
         public Nullable<System.DateTime> ModifiedDate { get; set; }
 
         [Required(ErrorMessage = "Description is Required")]
-        public Nullable<System.DateTime> Description { get; set; }
+        public string Description { get; set; }
         public string ProductImage { get; set; }
         public Nullable<bool> IsFeatured { get; set; }
         [Required]

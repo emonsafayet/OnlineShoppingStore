@@ -18,7 +18,7 @@
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Categories Details 
+            Categories Details
             <a href="../Admin/AddCategory" class="btn btn-info pull-right fa fa-plus">Add</a>
         </div>
         <div class="card-body">
@@ -41,12 +41,14 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@(Model.IndexOf(item)+1)</td>
-                            <td>@item.CategoryName</td>
-                            <td><a href="#">edit</a></td>
+                            <tr>
+                                <td>@(Model.IndexOf(item) + 1)</td>
+                                <td>@item.CategoryName</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "CategoryEdit", new { CategoryId = item.CategoryId })
+                                </td>
 
-                        </tr>
+                            </tr>
                         }
                     </tbody>
                 </table>

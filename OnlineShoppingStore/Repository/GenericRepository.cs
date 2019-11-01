@@ -22,13 +22,18 @@ namespace OnlineShoppingStore.Repository
         }
 
 
+        public IEnumerable<Tbl_Entity> GetProduct()
+        {
+            return _dbSet.ToList();
+        }
+
         public void Add(Tbl_Entity entity)
         {
             _dbSet.Add(entity);
             _DBEntity.SaveChanges();
         }
 
-        public IEnumerable<Tbl_Entity> GetAllRecord()
+        public IEnumerable<Tbl_Entity> GetAllRecords()
         {
             return _dbSet.ToList();
         }
@@ -103,6 +108,7 @@ namespace OnlineShoppingStore.Repository
         {
             _dbSet.Attach(entity);
             _DBEntity.Entry(entity).State = EntityState.Modified;
+            _DBEntity.SaveChanges();
         }
 
         public void UpdateByWhereClause(Expression<Func<Tbl_Entity, bool>> wherePredict, Action<Tbl_Entity> ForEachPredict)

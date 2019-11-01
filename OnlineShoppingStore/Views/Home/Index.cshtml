@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OnlineShoppingStore.Models.Home.HomeIndexViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 <div id="themeSlider" class="carousel slide" data-ride="carousel">
@@ -62,20 +63,42 @@
 </div>
 
 <div class="row product-container">
+    @foreach (var item in Model.ListofProducts)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
 
-    <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
-        <div class="thumbnail product-item" style="height:300px">
+                <img class="img-responsive" title="Click to View Product detail"
+                     style="cursor:pointer;height:160px;width:100%"
+                     src="~/Productimg/@item.ProductImage" />
 
-            <img class="img-responsive" title="Click to View Product detail"
-                 style="cursor:pointer;height:160px;width:100%"
-                 src="~/Images/4.jpg" />
+                <div class="caption">
+                    <h5>@item.ProductName</h5>
+                    <p>@item.Price৳.</p>
+                    <p>
+                        @if (item.Quantity > 0)
+                        {
+                        <p>Available</p>
+                    }
+                    else
+                    {
+                        <p>Not Available</p>
+                    }
+                        </p>
+                        <div class="product-item-badge">
+                            @if (item.IsFeatured == true)
+                            {
+                                <p>New</p>
+                            }
+                            else
+                            {
+                                <p>Old</p>
+                            }
 
-            <div class="caption">
-                <h5>Product Name</h5>
-                <p>110000.00 ৳.</p>
-                <p>Available</p>
-                <div class="product-item-badge">New</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        }
+
 </div>

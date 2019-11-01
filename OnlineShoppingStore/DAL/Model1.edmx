@@ -63,11 +63,11 @@
           <Property Name="IsDelete" Type="bit" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="Description" Type="datetime" />
           <Property Name="ProductImage" Type="varchar(max)" />
           <Property Name="IsFeatured" Type="bit" />
           <Property Name="Quantity" Type="int" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Tbl_Roles">
           <Key>
@@ -223,7 +223,7 @@
           <Property Name="IsDelete" Type="Boolean" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="Description" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" />
           <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsFeatured" Type="Boolean" />
           <Property Name="Quantity" Type="Int32" />
@@ -325,114 +325,113 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbMyOnlineShoppingModelStoreContainer" CdmEntityContainer="dbMyOnlineShoppingEntities">
-          <EntitySetMapping Name="Tbl_Cart">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_Cart">
-              <MappingFragment StoreEntitySet="Tbl_Cart">
-                <ScalarProperty Name="CartId" ColumnName="CartId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="CartStatusId" ColumnName="CartStatusId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_CartStatus">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_CartStatus">
-              <MappingFragment StoreEntitySet="Tbl_CartStatus">
-                <ScalarProperty Name="CartStatusId" ColumnName="CartStatusId" />
-                <ScalarProperty Name="CartStatus" ColumnName="CartStatus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Category">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_Category">
-              <MappingFragment StoreEntitySet="Tbl_Category">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_MemberRole">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_MemberRole">
-              <MappingFragment StoreEntitySet="Tbl_MemberRole">
-                <ScalarProperty Name="MemberRoleID" ColumnName="MemberRoleID" />
-                <ScalarProperty Name="memberId" ColumnName="memberId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Members">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_Members">
-              <MappingFragment StoreEntitySet="Tbl_Members">
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="FristName" ColumnName="FristName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Product">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_Product">
-              <MappingFragment StoreEntitySet="Tbl_Product">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
-                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Roles">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_Roles">
-              <MappingFragment StoreEntitySet="Tbl_Roles">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_ShippingDetails">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_ShippingDetails">
-              <MappingFragment StoreEntitySet="Tbl_ShippingDetails">
-                <ScalarProperty Name="ShippingDetailId" ColumnName="ShippingDetailId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_SlideImage">
-            <EntityTypeMapping TypeName="dbMyOnlineShoppingModel.Tbl_SlideImage">
-              <MappingFragment StoreEntitySet="Tbl_SlideImage">
-                <ScalarProperty Name="SlideId" ColumnName="SlideId" />
-                <ScalarProperty Name="SlideTitle" ColumnName="SlideTitle" />
-                <ScalarProperty Name="SlideImage" ColumnName="SlideImage" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbMyOnlineShoppingModelStoreContainer" CdmEntityContainer="dbMyOnlineShoppingEntities">
+    <EntitySetMapping Name="Tbl_Cart">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_Cart)">
+        <MappingFragment StoreEntitySet="Tbl_Cart">
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="CartStatusId" ColumnName="CartStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CartStatus">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_CartStatus)">
+        <MappingFragment StoreEntitySet="Tbl_CartStatus">
+          <ScalarProperty Name="CartStatusId" ColumnName="CartStatusId" />
+          <ScalarProperty Name="CartStatus" ColumnName="CartStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Category">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_Category)">
+        <MappingFragment StoreEntitySet="Tbl_Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_MemberRole">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_MemberRole)">
+        <MappingFragment StoreEntitySet="Tbl_MemberRole">
+          <ScalarProperty Name="MemberRoleID" ColumnName="MemberRoleID" />
+          <ScalarProperty Name="memberId" ColumnName="memberId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Members">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_Members)">
+        <MappingFragment StoreEntitySet="Tbl_Members">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="FristName" ColumnName="FristName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Product">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_Product)">
+        <MappingFragment StoreEntitySet="Tbl_Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_Roles)">
+        <MappingFragment StoreEntitySet="Tbl_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ShippingDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_ShippingDetails)">
+        <MappingFragment StoreEntitySet="Tbl_ShippingDetails">
+          <ScalarProperty Name="ShippingDetailId" ColumnName="ShippingDetailId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SlideImage">
+      <EntityTypeMapping TypeName="IsTypeOf(dbMyOnlineShoppingModel.Tbl_SlideImage)">
+        <MappingFragment StoreEntitySet="Tbl_SlideImage">
+          <ScalarProperty Name="SlideId" ColumnName="SlideId" />
+          <ScalarProperty Name="SlideTitle" ColumnName="SlideTitle" />
+          <ScalarProperty Name="SlideImage" ColumnName="SlideImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -446,7 +445,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
